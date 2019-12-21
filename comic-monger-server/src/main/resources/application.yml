@@ -1,0 +1,16 @@
+db:
+  mysql: localhost
+
+spring:
+  data:
+    rest:
+      basePath: /api
+  datasource:
+    url: jdbc:mysql://${db.mysql}:3306/comicmonger?createDatabaseIfNotExist=true
+    username: sa
+    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
