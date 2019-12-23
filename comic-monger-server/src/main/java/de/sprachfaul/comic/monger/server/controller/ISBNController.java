@@ -17,6 +17,7 @@ import de.sprachfaul.comic.monger.server.model.Comic;
 import de.sprachfaul.comic.monger.server.services.ComicService;
 
 @RestController
+@RequestMapping("/api")
 public class ISBNController {
 
 	private static Logger log = LoggerFactory.getLogger(ISBNController.class);
