@@ -8,9 +8,10 @@ import org.springframework.context.annotation.Import;
 import de.sprachfaul.comic.monger.server.controller.ControllerConfig;
 import de.sprachfaul.comic.monger.server.controller.SpringDataRepositoryRestMvcConfiguration;
 import de.sprachfaul.comic.monger.server.jpa.JPAConfig;
+import de.sprachfaul.comic.monger.server.services.ComicService;
 
 @SpringBootApplication
-@Import({ControllerConfig.class, SpringDataRepositoryRestMvcConfiguration.class, JPAConfig.class})
+@Import({ControllerConfig.class, SpringDataRepositoryRestMvcConfiguration.class, JPAConfig.class, ComicService.class})
 @EnableAutoConfiguration
 public class ComicMongerApplication {
 
