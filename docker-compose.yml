@@ -32,6 +32,7 @@ services:
     restart: always
     environment:
       db.mysql: db-mysql
+      spring.datasource.hikari.connectionTimeout: 30000
 
 volumes:
   mysql-data:
