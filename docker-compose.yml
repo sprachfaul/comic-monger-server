@@ -1,0 +1,37 @@
+version: '3.5'
+
+services:
+  loadbalancer:
+    image: haproxy:1.9
+    restart: always
+    volumes:
+      - "./docker-compose/loadbalancer/:/usr/local/etc/haproxy:ro"
+    ports:
+      - "8080:8080"
+
+  httpbin:
+    image: kennethreitz/httpbin
+
+  db-mysql:
+    image: mysql:8.0.18
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: comic-monger
+      MYSQL_DATABASE: comicmonger
+      MYSQL_USER: sa
+      MYSQL_PASSWORD: root
+    volumes:
+      - "mysql-data:/var/lib/mysql"
+
+  comic-monger-client:
+    restart: always
+    image: comic-monger-client:prod
+
+  comic-monger-server:
+    image: comic-monger-server:prod
+    restart: always
+    environment:
+      db.mysql: db-mysql
+
+volumes:
+  mysql-data:
