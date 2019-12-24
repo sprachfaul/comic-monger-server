@@ -6,13 +6,17 @@
 	
 	<parent>
 		<groupId>de.sprachfaul</groupId>
-		<artifactId>comic-monger-server-parent</artifactId>
+		<artifactId>comic-monger</artifactId>
 		<version>0.1-SNAPSHOT</version>
 	</parent>
 	
     <artifactId>comic-monger-server</artifactId>
 	<packaging>war</packaging>
 	<name>Comic Monger Server</name>
+	
+	<build>
+		<finalName>${project.artifactId}</finalName>
+	</build>
 	
 	<dependencies>
 		<dependency>

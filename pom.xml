@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>de.sprachfaul</groupId>
-    <artifactId>comic-monger-server-parent</artifactId>
+    <artifactId>comic-monger</artifactId>
     <version>0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>ParentPOM</name>

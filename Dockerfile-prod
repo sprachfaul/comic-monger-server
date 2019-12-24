@@ -1,0 +1,11 @@
+FROM maven:3.5.2-jdk-8-alpine AS MAVEN_BUILD
+COPY . /build/
+WORKDIR /build/
+# Todo - in memory db profile
+RUN mvn package -DskipTests
+
+FROM openjdk:8-jre-alpine
+VOLUME /tmp
+WORKDIR /app
+COPY --from=MAVEN_BUILD /build/comic-monger-server/target/comic-monger-server.war /app/
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "comic-monger-server.war"]
